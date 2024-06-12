@@ -1,0 +1,49 @@
+.mainbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 20px;
+}
+.display{
+    margin: 10px;
+    /* border: 1px solid black; */
+    width: 40vw;
+    display: flex;
+    
+}
+.display input{
+    width: 80%;
+    height: 3rem;
+    padding: 10px;
+    font-size: 2rem;
+}
+.display button{
+    width: 20%;
+    font-size: 1rem;
+}
+
+.custumizations{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+    gap: 10px;
+    font-size: large;
+}
+.custumizations input{
+    text-align: center;
+}
+
+@media (width<950px) {
+    .display input{
+        height: 2rem;
+        font-size: 1.5rem;
+    }
+}

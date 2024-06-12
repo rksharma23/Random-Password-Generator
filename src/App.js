@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import MainBox from './Components/MainBox';
 
 function App() {
+  const [length, setLength] = useState(8)
+  const [numberAllowed, setNumberAllowed] = useState(false)
+  const [symbolAllowed, setSymbolAllowed] = useState(false)
+  const [password, setPassword] = useState("")
+  useEffect(()=>{
+    let resource = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+    let tempPass = "";
+    if(numberAllowed){
+      resource += "0123456789"
+    }
+    if(symbolAllowed){
+      resource += "`!@#$%^&*()/"
+    }
+    for(let i = 1; i<= length; i++)
+      {
+        tempPass += resource.charAt(Math.floor(Math.random()*resource.length+1))
+      }
+      setPassword(tempPass)
+  }, [numberAllowed,symbolAllowed, length])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <MainBox length={length} setLength = {setLength} setNumberAllowed={setNumberAllowed} setSymbolAllowed={setSymbolAllowed} password={password} setPassword={setPassword} />
+    
+    </>
   );
 }
 
